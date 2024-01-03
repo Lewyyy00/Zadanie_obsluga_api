@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Currency Calculator </title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Currency Calculator</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount (in PLN)" required>
+            </div>
+            <div class="form-group">
+                <label for="currency">Currency:</label>
+                <select class="form-control" id="currency" name="currency" required>
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+        {% if result %}
+            <div class="mt-3">
+                <h4>Result:</h4>
+                <p>{{ result|default('Invalid input or currency') }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
